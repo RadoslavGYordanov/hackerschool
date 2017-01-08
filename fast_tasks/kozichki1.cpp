@@ -7,10 +7,24 @@ int main()
     unsigned max=0,capacity,varIndx,v_capacity;
     unsigned big,hasMoreValues,flag=1;
 
-    std::cin>>N>>K;
+    do
+    {
+        std::cout<<"Enter number of goats: ";
+        std::cin>>N;
+    }while(N<1 || N>1000);
+    do
+    {
+        std::cout<<"Enter number of trips: ";
+        std::cin>>K;
+    }while(K<1 || K>1000);
+
     for(int i=0;i<N;i++)
     {
-        std::cin>>Ai[i];
+        do
+        {
+            std::cout<<"Enter the weight of goat No."<<i+1<<": ";
+            std::cin>>Ai[i];
+        }while(Ai[i]<1 || Ai[i]>100000);
         if(Ai[i]>max)
         {
             max=Ai[i];
