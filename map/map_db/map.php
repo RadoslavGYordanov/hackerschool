@@ -10,10 +10,10 @@ if ($conn->connect_error) {
 }
 //echo "Connected successfully";
 
-$capital=$conn->real_escape_string($_POST["city"]);
+$city=$conn->real_escape_string($_POST["city"]);
 $country=$conn->real_escape_string($_POST["country1"]);
 
-$sql = "SELECT * FROM wp_country WHERE country='$country' AND capital='$capital'";
+$sql = "SELECT * FROM wp_map WHERE country='$country' AND city='$city'";
 $result= $conn->query($sql);
 
 $row = $result->fetch_array();
@@ -47,13 +47,13 @@ $row = $result->fetch_array();
     <script>
 
       function initMap() {
-        var myLatLng = {lat: <?php echo $row['lat'] ?>, lng: <?php echo $row['lng']?>};
+        var myLatLng = {lat: <?php echo $row['lat'] ?>, lng: <?php echo $row['lang']?>};
 
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 5,
+          zoom: 11,
           center: myLatLng
         });
-	var contentString="<?php echo "<strong>$country</strong><br>Capital:$capital<br>" ?>";
+	var contentString="<?php echo "<strong>$country</strong><br>City:$city<br>" ?>";
 	var infowindow = new google.maps.InfoWindow({
           content: contentString
   	 });

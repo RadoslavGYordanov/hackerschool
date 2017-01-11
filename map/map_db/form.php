@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 if(isset($_POST["country"]))
 {
 $country=$conn->real_escape_string($_POST["country"]);
-$sql1="SELECT capital FROM wp_country WHERE country='$country'";
+$sql1="SELECT * FROM wp_map WHERE country='$country' ORDER BY city";
 $result1= $conn->query($sql1);	
 
 
@@ -26,7 +26,7 @@ $result1= $conn->query($sql1);
 
 }
 
-$sql = "SELECT country FROM wp_country";
+$sql = "SELECT DISTINCT country FROM wp_map ORDER BY country";
 $result= $conn->query($sql);
 
 while($row = $result->fetch_array())
@@ -46,7 +46,7 @@ if(isset($_POST["country"]))
 { 
 ?>
 <h3>Select Country</h3>
-<form action="form1.php" method="post">
+<form action="form.php" method="post">
     <select name="country">
     <?php echo '<option value="'.$_POST["country"].'">'.$_POST["country"].'</option>';
          foreach($rows as $row)
@@ -55,11 +55,12 @@ if(isset($_POST["country"]))
     </select>
     <input type="submit" name="submit" value="Go"/>
 </form>
-<h3>Capital</h3>
-<form action="map1.php" method="post">
+<h3>Select City</h3>
+<form action="map.php" method="post">
 <select name="city">
         <?php 
-		echo '<option value="'.$rows1[0]['capital'].'">'.$rows1[0]['capital'].'</option>';
+		foreach($rows1 as $row1)
+			echo '<option value="'.$row1['city'].'">'.$row1['city'].'</option>';
 	?>
 </select>
 <input type="hidden" name="country1" value="<?php echo $_POST["country"]; ?>"/>
@@ -71,7 +72,7 @@ if(isset($_POST["country"]))
 else
 {  ?>
 <h3>Select Country</h3>
-<form action="form1.php" method="post">
+<form action="form.php" method="post">
     <select name="country">
         <?php foreach($rows as $row)
 		echo '<option value="'.$row['country'].'">'.$row['country'].'</option>';
