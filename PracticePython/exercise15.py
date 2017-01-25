@@ -9,4 +9,4 @@ def reverse_words( str ):
 
 str=raw_input('Enter a long string: ')
 str1=reverse_words(str)
-print str1
+print  str1
