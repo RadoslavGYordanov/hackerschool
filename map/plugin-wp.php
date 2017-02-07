@@ -22,7 +22,6 @@ $conn= new mysqli($servername, $username, $password, $db);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-//echo "Connected successfully";
 
 $sql = "SELECT * FROM wp_map";
 $result= $conn->query($sql);
@@ -32,7 +31,7 @@ $result= $conn->query($sql);
 
 if ($result->num_rows > 0) 
 {
-    // output data of each row
+
 $array = array();
 $counter=0;
 	while($row = $result->fetch_assoc())
@@ -40,15 +39,13 @@ $counter=0;
 		$array[] = $row;
 		$counter++;
  	}
-
- }
+}
     else 
 	{
     	//echo "0 results";
 	} 
 
 $conn->close();
-
 ?>
 
 <!DOCTYPE html>
@@ -90,14 +87,11 @@ $conn->close();
 
 <?php 
 	for($i=0;$i<$counter;$i++){
-        //$name = $array[$i]["Title"];
-	//$street = $array[$i]["Street"];
 	$country = $array[$i]["country"];
 	$city = $array[$i]["city"];
-        //$addr = $location['location_address'];
         $map_lat = $array[$i]["lat"];
         $map_lng = $array[$i]["lang"];
-        ?>
+?>
 
        contentString="<?php echo "<strong>$city</strong><br>$country<br>" ?>";
    var infowindow_<?php echo $i ?> = new google.maps.InfoWindow({
@@ -115,7 +109,7 @@ $conn->close();
 	  });
 
 
-<?php } //end for loop ?>
+<?php } ?>
  }
     </script>
     <script async defer
@@ -124,5 +118,4 @@ $conn->close();
   </body>
 </html>
 
-<?php } 
-} ?>
+<?php } } ?>

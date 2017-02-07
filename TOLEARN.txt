@@ -1,7 +1,19 @@
-keep-alive
-http2
-inode
-folder vs file
-symbolic link - change owner
-grep,sort,unique
-redirection
+#26.01.2017
+-keep-alive
+-http2
+-inode
+-folder vs file
+-symbolic link - change owner
+-grep,sort,unique
+-redirection
+
+#01.02.2017
+-fix PracticePython/exercise15
+-do every excersise in perl/python/php/c++ (Last 5 from PracticePython)
+
+-scripting:
+.string byte vs word (UNICODE,UTF8)
+.what is passed by reference
+.memory conservation
+.don't use default values
+.pytest
