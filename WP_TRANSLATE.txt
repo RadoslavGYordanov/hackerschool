@@ -1,0 +1,10 @@
+Content translation:
+-WPML
+-Polylang
+-qTranslate
+
+Theme translation:
+-Loco Translate
+-WPML
+
+https://wpml.org/home/comparing-wpml-free-paid-alternatives/

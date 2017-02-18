@@ -10,8 +10,8 @@ int main()
         return 1;
     }
 
-    int cnt=0,temp;
-    long long num_2,num=70;
+    unsigned int cnt=0,temp;
+    unsigned long long num_2,num=70;
     bool zero,four,nine,flag;
     while(cnt!=n)
     {
@@ -23,16 +23,19 @@ int main()
         while(num_2!=0)
         {
             temp=num_2%10;
-            if(temp==0)
-                zero=1;
-            else if(temp==4)
-                four=1;
-            else if(temp==9)
-                nine=1;
-            else
+            if(temp!=0 && temp!=4 && temp!=9)
             {
                 flag=0;
                 break;
+            }
+            else
+            {
+                if(temp==0)
+                    zero=1;
+                else if(temp==4)
+                    four=1;
+                else
+                    nine=1;
             }
             num_2/=10;
         }
@@ -41,8 +44,11 @@ int main()
             if(zero && four && nine)
             {
                 cnt++;
+                std::cout<<"\n"<<cnt<<"\n"<<num<<"\n";
             }
         }
+//      if(cnt>73)
+//              std::cout<<"\n"<<num;
         num++;
     }
 
@@ -50,3 +56,6 @@ int main()
 
     return 0;
 }
+
+
+
