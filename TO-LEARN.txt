@@ -1,0 +1,23 @@
+-docker
+-chmod -X
+-sticky bit - t
+-* expansion - glob
+-find files with setuid bit
+-PAM - authorization logging
+-process - nice
+- PR vs NI
+- SHR -top
+- SIGHUB,SIGUSR
+
+
+Задачи:
+
+1.NAT
+2.Private адреси IPv6 NAT or no-NAT
+3.DDWRT
+-port filtering/forwarding
+4.PFSENSE - BSD Firewall
+-port filtering/forwarding
+5.Apache, Nginx - Wordpress
+-Testing with AB-Apache Benchmark
+-Nginx - reverse proxy
